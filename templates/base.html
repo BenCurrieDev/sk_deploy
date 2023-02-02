@@ -1,0 +1,85 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <title>{% block title %}skoonUlator{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skoon.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playfair+Display&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+  </head>
+  <body>
+    {% block body %}
+
+        <nav class="navbar">
+            <div class="nav-content-container">
+              
+              <a href="{% url 'database' %}" ><img src="{% static 'img/logo.png' %}"></a>
+              
+              <div class="nav-content mobile">
+                <ul>
+                  <li class="navlink">
+                      <a href={% url 'home' %}>
+                      <span class="material-symbols-rounded">
+                        calculate
+                      </span>
+                      </a>
+                  </li>
+                  <li class="navlink">
+                      <a href={% url 'database' %}>
+                          <span class="material-symbols-rounded">
+                          database
+                          </span>
+                      </a>
+                  </li>
+                  <li class="logout">
+                      <a href="{% url 'logout' %}" >
+                          <span class="material-symbols-rounded">
+                          logout
+                          </span>
+                      </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="nav-content desktop">
+                <ul>
+                  <li class="navlink">
+                      <a href={% url 'home' %} class="desklink">
+                        Calculator
+                      </a>
+                  </li>
+                  <li class="navlink">
+                      <a href={% url 'database' %} class="desklink">
+                        Database
+                      </a>
+                  </li>
+                  <li class="logout">
+                      <a href="{% url 'logout' %}" class="desklink">
+                          Log out
+                      </a>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </nav>
+
+
+        <div class="main-container">
+
+            {% block content %}
+
+
+            {% endblock %}
+
+        </div>
+    {% endblock body %}
+  </body>
+</html>

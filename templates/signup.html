@@ -1,0 +1,23 @@
+{% extends 'base_accounts.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <form method="post" class="accounts-form">
+    {% csrf_token %}
+    {% include 'includes/basic_form.html' %}
+    <button type="submit" class="center accounts-submit">CREATE ACCOUNT</button>
+  </form>
+
+  <p class="fs center">
+    Already have an account? <a href="{% url 'login' %}" >Log in</a>
+  </p>
+            
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<h1 class="page-heading">Materials Database</h1>
+  
+<div class="page-content-db">
+
+  <div class="materials-db-table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-1">Material</th>
+          <th>K-value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for material in materials %}
+          <tr>
+            <td class="col-1">
+              {{ material.name }}
+            </td>
+            <td>
+              {{material.thermal_conductivity}} Wm<sup>-1</sup>K<sup>-1</sup>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="composites-db-table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="col-1">Composite</th>
+          <th>Depth</th>
+          <th colspan="2">U-value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for composite in composites %}
+        <tr>
+          <td class="col-1">
+            {{ composite.name }}
+          </td>
+          <td>
+            {{ composite.calcThickness }} mm
+          </td>
+          <td>
+            {{ composite.calcU }}  Wm<sup>-2</sup>K<sup>-1</sup>
+          </td>
+          <td class="table-del-container"><form method="POST" class="table-del-container">
+            {% csrf_token %}
+            {% render_field delete.delete_composite %}
+            {% render_field delete.to_delete value=composite.pk %}
+            <input type="submit" value="DEL" name="deleteButton" class="table-delete">
+          </form></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+ 
+</div>
+{% endblock %}

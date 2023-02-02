@@ -1,0 +1,23 @@
+{% extends 'base_accounts.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block content %}
+  
+<form method="post" class="accounts-form">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% include 'includes/basic_form.html' %}
+    <button type="submit" class="center accounts-submit">LOG IN</button>
+</form>
+
+  <p class="fs center">
+    New to  skoonUlator? <a href="{% url 'signup' %}">Sign up</a>
+  </p>
+
+
+{% endblock %}
