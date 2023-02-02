@@ -113,7 +113,7 @@
               {% csrf_token %}
               {% render_field insulator_form.calculate_insulation %}
               {% render_field insulator_form.target_u id="target_u" placeholder="Target U..." class="insulation-input" %}
-              <input type="submit" value="CALC" name="insultationButton" class="insulation-button">
+              <input type="submit" value="CALC" name="insultationButton" class="insulation-button button">
             </form>
             
           </div>
@@ -138,7 +138,7 @@
           
       {% render_field component_form.thickness id="thickness" class="depth-input" placeholder="mm depth..." %}
           
-      <button type="submit" name="addMaterialButton" class="submit-material">ADD</button>
+      <button type="submit" name="addMaterialButton" class="submit-material button">ADD</button>
         
     </form>
 

@@ -55,7 +55,7 @@
             {% csrf_token %}
             {% render_field delete.delete_composite %}
             {% render_field delete.to_delete value=composite.pk %}
-            <input type="submit" value="DEL" name="deleteButton" class="table-delete">
+            <input type="submit" value="DEL" name="deleteButton" class="table-delete button">
           </form></td>
         </tr>
       {% endfor %}
